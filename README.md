@@ -1,5 +1,7 @@
 # php-apache
 
+## コンテナの準備
+
 Dockerfile
 ```
 FROM php:5-apache
@@ -18,15 +20,34 @@ index.php
 ?>
 ```
 
+## コンテナをPush
+ビルドして、コンテナイメージレジストリにPush、
+もしくはこちらを使います。
+registry.k8s.io/hpa-example
+
+
+## コンテナをデプロイ
+割愛
+
+
+## 状態の確認
+
 ```
 kubectl get hpa
 ```
 
-負荷をかける
+
+## 負荷をかける
 ```
 kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
 ```
 
+
+## 状態の確認
 ```
 watch kubectl get deployment php-apache
 ```
+
+
+## 負荷の停止
+<Ctrl> + C
