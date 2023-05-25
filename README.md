@@ -49,5 +49,5 @@ watch kubectl get deployment php-apache
 ```
 
 
-## 負荷の停止
+## 負荷　の　停止
 Ctrl + C
